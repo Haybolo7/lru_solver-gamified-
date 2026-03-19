@@ -70,6 +70,9 @@ The output includes a grid where:
 * **Rows** represent physical memory frames.
 * **Status Row** marks each step as **H** (Hit) or **M** (Miss/Fault) for quick auditing.
 
+### Concurrency strategy
+To make the LRU Cache thread-safe (concurrent), we must address the Race Conditions that occur when multiple threads attempt to modify the Doubly Linked List or the Hash Map simultaneously.
+
 ---
 
 ## 🚀 How to Run
