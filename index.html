@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LRU Cache Solver</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="left-panel">
+        <div class="header-box">LRU Solver</div>
+
+        <h2>Input-</h2>
+
+        <label for="frames">Enter number of frames:</label>
+        <input type="number" id="frames" value="3" min="1">
+
+        <label for="pages">Enter number of page refs(space-separated):</label>
+        <input type="text" id="pages" value="4 2 7 9 5 1 4 6">
+
+        <button class="solve-btn" onclick="calculateLRU()">Calculate Output</button>
+    </div>
+
+    <div class="right-panel">
+        <h2 class="output-title">Output with illustration-</h2>
+
+        <div class="results" id="results">
+            <p id="total-faults">Total number of page faults= </p>
+            <p id="hit-ratio">Hit ratio= </p>
+            <p id="miss-ratio">Miss ratio= </p>
+        </div>
+
+        <div class="table-container" id="table-container">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
