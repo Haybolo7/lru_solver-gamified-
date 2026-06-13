@@ -1,0 +1,248 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* --- Left Side: Control & Configuration Panel --- */
+.left-panel {
+    background-color: #c0f971; /* Light Green Base */
+    width: 380px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid #ccc;
+    overflow-y: auto;
+}
+
+.header-box {
+    background-color: #1cb0f6; /* Cyan Accents */
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+h2, h3 {
+    margin: 10px 0 10px 0;
+    text-decoration: underline;
+}
+
+label {
+    color: #0d47a1; /* Dark Blue Typography */
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+input {
+    background-color: #fff;
+    border: 2px solid #0d47a1;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    color: #000;
+}
+
+.mode-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.action-btn {
+    flex: 1;
+    color: white;
+    border: none;
+    padding: 12px 5px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background 0.2s;
+}
+
+.solve-btn { background-color: #0d47a1; }
+.solve-btn:hover { background-color: #082d6b; }
+.challenge-btn { background-color: #e67e22; }
+.challenge-btn:hover { background-color: #d35400; }
+
+/* Gameplay Interaction Box Layout */
+.gameplay-box {
+    background: #fff;
+    border: 2px dashed #e67e22;
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.hidden { display: none !important; }
+
+.game-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.game-btn {
+    flex: 1;
+    padding: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    color: white;
+    border-radius: 4px;
+}
+
+.hit-btn { background-color: #27ae60; }
+.miss-btn { background-color: #c0392b; }
+
+.game-feedback {
+    font-weight: bold;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* Scoreboard Style Block */
+.scoreboard-container {
+    background: #0d47a1;
+    color: white;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: auto;
+}
+.scoreboard-container h3 { text-decoration: none; margin-top: 0; color: #1cb0f6;}
+
+.score-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.score-val { color: #55efc4; }
+.streak-val {
+    color: #ffeaa7;
+    transition: all 0.3s ease;
+}
+
+/* Glow Effect on High Predictions Streaks */
+.glowing-streak {
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff0;
+    transform: scale(1.1);
+}
+
+/* --- Right Side: Visual Output Panel --- */
+.right-panel {
+    flex-grow: 1;
+    padding: 20px 40px;
+    background-color: turquoise;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.output-title {
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+
+.results p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0652dd;
+    margin: 6px 0;
+}
+
+/* Matrix Table Rendering Utilities */
+.table-container {
+    margin-top: 15px;
+    overflow-x: auto;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid #333;
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+th {
+    background-color: #f1f2f6;
+    color: #2f3542;
+}
+
+.status-miss { color: #d32f2f; background-color: #ffeae8; }
+.status-hit { color: #388e3c; background-color: #e8f5e9; }
+.active-step { outline: 3px solid #e67e22; background-color: #fff9e6; }
+
+/* Achievement Badges Framework */
+.achievements-section {
+    margin-top: 30px;
+    border-top: 2px dashed #0d47a1;
+    padding-top: 20px;
+}
+
+.badges-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.badge-card {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    width: 220px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+}
+
+.badge-card h4 { margin: 8px 0 4px 0; }
+.badge-card p { font-size: 12px; margin: 0; color: #57606f; }
+.badge-icon { font-size: 36px; }
+
+.locked {
+    opacity: 0.4;
+    filter: grayscale(100%);
+    background: #f1f2f6;
+    border: 2px solid #ced6e0;
+}
+
+.unlocked {
+    opacity: 1 !important;
+    filter: grayscale(0%) !important;
+    border: 2px solid #2ed573;
+    background: #fff;
+    animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1.0); }
+}
