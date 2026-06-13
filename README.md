@@ -1,8 +1,6 @@
 # 🚀 LRU Cache Solver: $O(1)$ Implementation & Visualizer
 
-A high-performance web-based simulation of the **Least Recently Used (LRU)** Page Replacement Algorithm. This project implements a cache that supports `get` and `put` operations in strictly constant time while providing a step-by-step visual illustration of memory frame transitions.
-
----
+A high-performance web-based simulation of the **Least Recently Used (LRU)** Page Replacement Algorithm. This project implements a cache that supports `get` and `put` operations in strictly constant time while providing a step-by-step visual illustration of memory frame transitions. 
 
 ## 📝 Problem Statement
 
@@ -12,8 +10,6 @@ The **Least Recently Used (LRU)** policy dictates that the page which has not be
 1. **`get(key)`**: Returns the value and marks the key as most recently used in **$O(1)$**.
 2. **`put(key, value)`**: Adds/updates items and handles eviction of the oldest item in **$O(1)$**.
 3. **Visualization**: Provide a clear grid showing Page Faults, Hits, and the state of memory frames over a sequence of references.
-
----
 
 ## 🏗️ Architecture & Algorithmic Design
 
@@ -26,8 +22,6 @@ To achieve **$O(1)$ performance**, a single data structure is insufficient. This
 ### 2. The Doubly Linked List (The "Chronometer")
 * **Role**: Maintains the order of usage. The node at the **Head** is the Most Recently Used (MRU), and the node at the **Tail** is the Least Recently Used (LRU).
 * **Why**: Allows us to remove a node from the middle and re-insert it at the head in **$O(1)$** time, provided we have the reference from the Hash Map.
-
-
 
 ### 3. Efficiency Justification
 | Operation | Process | Complexity |
